@@ -4,4 +4,16 @@
 .PWGx-PipelineGraph-container {
   display: flex;
   align-items: center;
+  animation: pgv-fade-up 0.4s ease-out both;
+
+  @keyframes pgv-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

@@ -1,7 +1,17 @@
 .pgv-single-run {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 240px 1fr;
   align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--text-color) 3%, transparent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
 
   &:last-of-type {
     border-bottom: none;
@@ -11,10 +21,10 @@
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: start;
-    gap: 0.125rem 0.625rem;
+    gap: 0.25rem 0.75rem;
     color: var(--text-color);
     text-decoration: none;
-    transition: opacity var(--standard-transition);
+    transition: all 0.2s ease;
     word-break: normal;
     overflow-wrap: anywhere;
 
@@ -25,11 +35,12 @@
     }
 
     &:hover {
-      opacity: 0.75;
+      opacity: 0.8;
+      color: var(--accent-color) !important;
     }
 
     &:active {
-      opacity: 0.5;
+      opacity: 0.6;
     }
 
     svg {

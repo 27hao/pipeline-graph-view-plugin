@@ -5,21 +5,33 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0 0.5rem;
-  padding: 0.125rem 0.7rem 0.125rem calc(1rem + var(--jenkins-border-width));
-  border-radius: var(--form-input-border-radius);
-  margin-bottom: 0.75rem;
+  gap: 0 0.625rem;
+  padding: 0.25rem 0.875rem 0.25rem calc(1.125rem + var(--jenkins-border-width));
+  border-radius: 10px;
+  margin-bottom: 0.875rem;
   z-index: 101;
+  animation: pgv-slide-in 0.3s ease-out both;
+
+  @keyframes pgv-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: oklch(from var(--bg-color) l c h / 0.075);
+    background: oklch(from var(--bg-color) l c h / 0.08);
     border: var(--jenkins-border-width) solid
-      oklch(from var(--bg-color) l c h / 0.1);
+      oklch(from var(--bg-color) l c h / 0.12);
     border-radius: inherit;
-    transition: var(--standard-transition);
+    transition: all 0.25s ease;
     pointer-events: none;
 
     @media (prefers-contrast: more) {
@@ -27,11 +39,16 @@
     }
   }
 
+  &:hover::before {
+    background: oklch(from var(--bg-color) l c h / 0.1);
+    box-shadow: 0 4px 12px oklch(from var(--bg-color) l c h / 0.1);
+  }
+
   & > div {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 0;
+    gap: 0.875rem;
+    padding: 0.625rem 0;
 
     & > div {
       display: contents;
@@ -45,20 +62,22 @@
 
   h2 {
     font-size: var(--font-size-sm);
-    font-weight: var(--font-bold-weight);
+    font-weight: 600;
     margin: 0;
     text-box: trim-both;
+    letter-spacing: 0.01em;
   }
 
   .jenkins-button {
-    --button-background--hover: oklch(from currentColor l c h / 0.1);
+    --button-background--hover: oklch(from currentColor l c h / 0.12);
     --button-background--active: oklch(from currentColor l c h / 0.2);
     --button-box-shadow--focus: oklch(from currentColor l c h / 0.1);
 
     color: var(--color) !important;
-    border-radius: 0.4rem;
+    border-radius: 8px;
     margin-inline: -0.85rem;
     padding-inline: 1.125rem;
+    transition: all 0.2s ease;
 
     &::before,
     &::after {
@@ -103,12 +122,12 @@
     border-radius: inherit;
     background: var(--bg-color);
     pointer-events: none;
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse 2.5s ease-in-out infinite;
     opacity: 0;
 
     @keyframes pulse {
       50% {
-        opacity: 0.1;
+        opacity: 0.12;
       }
     }
   }

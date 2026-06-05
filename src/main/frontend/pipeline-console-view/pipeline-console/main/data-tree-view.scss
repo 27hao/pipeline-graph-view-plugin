@@ -1,11 +1,13 @@
 $pgv-icon-size: 1.375rem;
-$pgv-item-padding-inline: 0.7rem;
+$pgv-item-padding-inline: 0.75rem;
 
 .pgw-filter-bar {
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  transition: box-shadow 0.25s ease;
 
   &::before {
     content: "";
@@ -13,13 +15,13 @@ $pgv-item-padding-inline: 0.7rem;
     inset: 0;
     background: var(--card-background);
     border: var(--card-border-width) solid var(--card-border-color);
-    border-radius: var(--form-input-border-radius);
-    box-shadow: var(--form-input-glow);
-    transition: var(--standard-transition);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
   }
 
   button {
-    border-radius: 0.4rem;
+    border-radius: 8px;
     padding-inline: 0;
     width: 42px;
 
@@ -30,7 +32,7 @@ $pgv-item-padding-inline: 0.7rem;
   }
 
   .jenkins-search {
-    --search-bar-height: 2.625rem;
+    --search-bar-height: 2.75rem;
 
     input {
       border: none !important;
@@ -43,13 +45,15 @@ $pgv-item-padding-inline: 0.7rem;
   &:hover {
     &::before {
       border-color: var(--input-border-hover);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
   }
 
   &:has(input:focus) {
     &::before {
       border-color: var(--focus-input-border);
-      box-shadow: var(--form-input-glow--focus);
+      box-shadow: 0 0 0 3px
+        color-mix(in srgb, var(--focus-input-border) 15%, transparent);
     }
   }
 }
@@ -76,11 +80,12 @@ $pgv-item-padding-inline: 0.7rem;
   appearance: none;
   z-index: 0;
   font-weight: normal;
-  border-radius: var(--form-input-border-radius);
+  border-radius: 10px;
   cursor: pointer;
   background: transparent;
   outline: none;
   border: none;
+  transition: transform 0.15s ease;
 
   &::before,
   &::after {
@@ -89,7 +94,7 @@ $pgv-item-padding-inline: 0.7rem;
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    transition: var(--standard-transition);
+    transition: all 0.25s ease;
     pointer-events: none;
   }
 
@@ -119,6 +124,7 @@ $pgv-item-padding-inline: 0.7rem;
     &:active {
       outline: none !important;
       z-index: 1;
+      transform: scale(0.98);
 
       &::before {
         background-color: var(--item-background--active);
@@ -160,7 +166,7 @@ $pgv-item-padding-inline: 0.7rem;
   text-decoration: none;
   color: var(--text-color);
   position: relative;
-  padding: 0.5rem $pgv-item-padding-inline;
+  padding: 0.625rem $pgv-item-padding-inline;
 
   mask-image: linear-gradient(
     90deg,
@@ -175,7 +181,7 @@ $pgv-item-padding-inline: 0.7rem;
   }
 
   &--active {
-    font-weight: 450;
+    font-weight: 600;
 
     .pgv-status-icon {
       svg > * {
@@ -214,7 +220,9 @@ $pgv-item-padding-inline: 0.7rem;
     right: 0;
     bottom: 0;
     aspect-ratio: 1;
-    transition: var(--standard-transition);
+    transition:
+      transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.2s ease;
     appearance: none;
     background: none;
     padding: 0;
@@ -266,14 +274,18 @@ $pgv-item-padding-inline: 0.7rem;
   &::before {
     content: "";
     position: absolute;
-    top: 0.375rem;
+    top: 0.5rem;
     left: calc(
       $pgv-item-padding-inline + ($pgv-icon-size / 2) -
         (var(--jenkins-border-width) / 2)
     );
-    bottom: 0.375rem;
-    background-color: var(--jenkins-border-color);
+    bottom: 0.5rem;
+    background-color: color-mix(
+      in srgb,
+      var(--text-color-secondary) 15%,
+      transparent
+    );
     width: var(--jenkins-border-width);
-    border-radius: var(--form-input-border-radius);
+    border-radius: 10px;
   }
 }
