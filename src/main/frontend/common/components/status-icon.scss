@@ -1,7 +1,7 @@
-// TODO - can be removed when changes are in Jenkins core
+// 状态背景透明度变量（后续 Jenkins 核心更新后可移除）
 :root {
-  --status-background-opacity: 0.125;
-  --status-border-opacity: 0.25;
+  --status-background-opacity: 0.1;
+  --status-border-opacity: 0.2;
 
   @media (prefers-contrast: more) {
     --status-background-opacity: 0;
@@ -13,18 +13,30 @@
   flex-shrink: 0;
 
   * {
-    transition: var(--elastic-transition);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-origin: center;
   }
 
+  &:hover {
+    transform: scale(1.1);
+  }
+
   .pgv-scale {
-    animation: pulseScale 2s both ease-in-out infinite;
-    opacity: 0.25;
+    animation: pulseScale 2.5s both ease-in-out infinite;
+    opacity: 0.2;
 
     @keyframes pulseScale {
+      0% {
+        scale: 1.5;
+        opacity: 0.15;
+      }
       50% {
-        scale: 2.25;
-        opacity: 1;
+        scale: 2.5;
+        opacity: 0.8;
+      }
+      100% {
+        scale: 1.5;
+        opacity: 0.15;
       }
     }
   }

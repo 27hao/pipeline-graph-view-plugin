@@ -24,32 +24,32 @@ describe("SettingsButton", () => {
     const buttonPortal = createButtonPortal();
     renderComponent(buttonPortal);
 
-    expect(screen.getByText("Settings")).toBeTruthy();
+    expect(screen.getByText("设置")).toBeTruthy();
   });
 
   it("should toggle dropdown when clicking settings button", async () => {
     const buttonPortal = createButtonPortal();
     renderComponent(buttonPortal);
 
-    const settingsButton = screen.getByText("Settings");
+    const settingsButton = screen.getByText("设置");
     fireEvent.click(settingsButton!);
 
-    expect(screen.getByText("Show stage names")).toBeInTheDocument();
-    expect(screen.getByText("Show stage duration")).toBeInTheDocument();
+    expect(screen.getByText("显示阶段名称")).toBeInTheDocument();
+    expect(screen.getByText("显示阶段持续时间")).toBeInTheDocument();
   });
 
   it("should update preferences when toggling checkboxes", () => {
     const buttonPortal = createButtonPortal();
     renderComponent(buttonPortal);
 
-    const settingsButton = screen.getByText("Settings");
+    const settingsButton = screen.getByText("设置");
     fireEvent.click(settingsButton);
 
-    const showNamesCheckbox = screen.getByLabelText("Show stage names");
+    const showNamesCheckbox = screen.getByLabelText("显示阶段名称");
     fireEvent.click(showNamesCheckbox);
     expect(showNamesCheckbox).toBeChecked();
 
-    const showDurationsCheckbox = screen.getByLabelText("Show stage duration");
+    const showDurationsCheckbox = screen.getByLabelText("显示阶段持续时间");
     fireEvent.click(showDurationsCheckbox);
     expect(showDurationsCheckbox).toBeChecked();
   });

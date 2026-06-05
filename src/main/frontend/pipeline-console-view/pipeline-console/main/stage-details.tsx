@@ -38,7 +38,7 @@ export default function StageDetails({ stage }: StageDetailsProps) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            aria-label={"Total duration"}
+            aria-label={"总持续时间"}
           >
             <path
               d="M112.91 128A191.85 191.85 0 0064 254c-1.18 106.35 85.65 193.8 192 194 106.2.2 192-85.83 192-192 0-104.54-83.55-189.61-187.5-192a4.36 4.36 0 00-4.5 4.37V152"
@@ -115,7 +115,7 @@ export default function StageDetails({ stage }: StageDetailsProps) {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              aria-label={"Cause of blockage"}
+              aria-label={"阻塞原因"}
             >
               <path
                 d="M145.61 464h220.78c19.8 0 35.55-16.29 33.42-35.06C386.06 308 304 310 304 256s83.11-51 95.8-172.94c2-18.78-13.61-35.06-33.41-35.06H145.61c-19.8 0-35.37 16.28-33.41 35.06C124.89 205 208 201 208 256s-82.06 52-95.8 172.94c-2.14 18.77 13.61 35.06 33.41 35.06z"
@@ -140,13 +140,13 @@ export default function StageDetails({ stage }: StageDetailsProps) {
             disabled={stage.synthetic && !stage.placeholder}
             items={[
               {
-                text: "View stage as plain text",
+                text: "以纯文本查看阶段",
                 icon: DOCUMENT,
                 href: `log?nodeId=${stage.id}`,
                 target: "_blank",
               },
               {
-                text: "Download stage logs",
+                text: "下载阶段日志",
                 icon: (
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path

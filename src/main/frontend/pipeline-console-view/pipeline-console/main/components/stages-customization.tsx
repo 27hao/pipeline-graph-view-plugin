@@ -41,20 +41,20 @@ export default function StagesCustomization() {
             stageViewPosition={stageViewPosition}
           />
         </div>
-        Views
+        视图
         <span>
-          {mainViewVisibility === MainViewVisibility.BOTH && "Graph and stages"}
-          {mainViewVisibility === MainViewVisibility.GRAPH_ONLY && "Graph"}
-          {mainViewVisibility === MainViewVisibility.STAGES_ONLY && "Stages"}
+          {mainViewVisibility === MainViewVisibility.BOTH && "图表和阶段"}
+          {mainViewVisibility === MainViewVisibility.GRAPH_ONLY && "图表"}
+          {mainViewVisibility === MainViewVisibility.STAGES_ONLY && "阶段"}
         </span>
         <select
           id="main-view-visibility"
           value={mainViewVisibility}
           onChange={handleViewChange}
         >
-          <option value={MainViewVisibility.BOTH}>Graph and stages</option>
-          <option value={MainViewVisibility.GRAPH_ONLY}>Graph</option>
-          <option value={MainViewVisibility.STAGES_ONLY}>Stages</option>
+          <option value={MainViewVisibility.BOTH}>图表和阶段</option>
+          <option value={MainViewVisibility.GRAPH_ONLY}>图表</option>
+          <option value={MainViewVisibility.STAGES_ONLY}>阶段</option>
         </select>
       </label>
 
@@ -112,9 +112,9 @@ export default function StagesCustomization() {
             />
           </svg>
         </div>
-        Graph position
+        图表位置
         <span>
-          {stageViewPosition === StageViewPosition.TOP ? "Top" : "Left"}
+          {stageViewPosition === StageViewPosition.TOP ? "顶部" : "左侧"}
         </span>
         <select
           id="stage-view-position"
@@ -122,8 +122,8 @@ export default function StagesCustomization() {
           onChange={handlePositionChange}
           disabled={mainViewVisibility === MainViewVisibility.STAGES_ONLY}
         >
-          <option value={StageViewPosition.TOP}>Top</option>
-          <option value={StageViewPosition.LEFT}>Left</option>
+          <option value={StageViewPosition.TOP}>顶部</option>
+          <option value={StageViewPosition.LEFT}>左侧</option>
         </select>
       </label>
       <div className="jenkins-dropdown__separator" />

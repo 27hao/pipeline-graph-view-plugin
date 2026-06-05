@@ -2,6 +2,7 @@
 
 .PWGx-pipeline-connector {
   stroke: variables.$graph-connector-grey;
+  transition: stroke 0.2s ease;
 }
 
 .PWGx-pipeline-node {
@@ -12,6 +13,11 @@
   width: 1.75rem;
   height: 1.75rem;
   z-index: 0;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
 
   &::before {
     content: "";
@@ -20,23 +26,26 @@
     background: var(--card-background);
     border-radius: 50%;
     z-index: -1;
+    transition: box-shadow 0.25s ease;
   }
 
   &--selected {
     &::after {
       box-shadow:
         0 0 0 0.125rem currentColor,
-        0 0 0 0.5rem var(--card-background) !important;
+        0 0 0 0.5rem var(--card-background),
+        0 2px 8px rgba(0, 0, 0, 0.1) !important;
     }
   }
 
-  // The selected state looks rather odd for running jobs, so apply custom styling to make it look better
+  // 运行中的任务选中状态需要特殊样式
   &--running.PWGx-pipeline-node--selected {
     &::after {
       inset: 0;
       box-shadow:
         0 0 0 0.125rem color-mix(in srgb, currentColor, transparent),
-        0 0 0 0.5rem var(--card-background) !important;
+        0 0 0 0.5rem var(--card-background),
+        0 2px 8px rgba(0, 0, 0, 0.1) !important;
     }
   }
 
@@ -47,7 +56,7 @@
       inset: 1px;
       border-radius: 50%;
       z-index: -1;
-      transition: var(--standard-transition);
+      transition: all 0.25s ease;
       box-shadow: 0 0 0 0.5rem transparent;
     }
 
@@ -57,14 +66,14 @@
 
     &:hover {
       &::after {
-        background: oklch(from var(--color) l c h / 0.1);
+        background: oklch(from var(--color) l c h / 0.12);
       }
     }
 
     &:active,
     &:focus {
       &::after {
-        background: oklch(from var(--color) l c h / 0.15);
+        background: oklch(from var(--color) l c h / 0.18);
         box-shadow: 0 0 0 0.25rem oklch(from var(--color) l c h / 0.15);
       }
     }
@@ -85,6 +94,7 @@
   svg {
     width: 1.75rem;
     height: 1.75rem;
+    transition: all 0.25s ease;
   }
 
   &:has(.PWGx-pipeline-node-terminal) {
@@ -100,10 +110,16 @@
   line-height: 1rem;
   text-align: center;
   font-size: var(--font-size-xs);
-  font-weight: var(--font-bold-weight);
+  font-weight: 600;
   cursor: default;
   border: 2px solid variables.$graph-connector-grey;
   color: var(--text-color-secondary);
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--text-color);
+    color: var(--text-color);
+  }
 
   &::before {
     display: none !important;
@@ -115,6 +131,7 @@
   height: 10px;
   border: 2px solid variables.$graph-connector-grey;
   border-radius: 10px;
+  transition: all 0.2s ease;
 
   &::before {
     display: none !important;
@@ -129,7 +146,7 @@
 
 .PWGx-pipeline-small-label {
   font-size: 0.75rem;
-  transition: translate var(--standard-transition);
+  transition: translate 0.25s ease;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -146,10 +163,13 @@
 }
 
 .PWGx-pipeline-big-label {
-  font-weight: var(--font-bold-weight);
+  font-weight: 600;
   font-size: 0.8125rem;
-  transition: translate var(--standard-transition);
+  transition:
+    translate 0.25s ease,
+    color 0.2s ease;
   text-align: center;
+  letter-spacing: 0.01em;
 
   .TruncatingLabel {
     -webkit-line-clamp: 1 !important;
@@ -183,7 +203,7 @@
   color: var(--text-color-secondary);
   cursor: pointer;
   white-space: nowrap;
-  transition: color var(--standard-transition);
+  transition: color 0.2s ease;
 
   &:hover {
     color: var(--text-color);
@@ -197,7 +217,7 @@
   margin-left: 0.2rem;
   vertical-align: baseline;
   transform: rotate(0deg);
-  transition: transform var(--standard-transition);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &--expanded {
     transform: rotate(90deg);

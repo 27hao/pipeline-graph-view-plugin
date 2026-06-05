@@ -1,5 +1,5 @@
 :root {
-  // can be removed and `--header-height` used directly when jenkins baseline is 2.507
+  // 后续 Jenkins 基线升级到 2.507 后可直接使用 --header-height
   --pgv-header-height: var(--header-height, 45.5938px);
   --ansi-0: var(--black);
   --ansi-1: var(--red);
@@ -83,7 +83,7 @@
   color: var(--ansi-15);
 }
 
-// Standard background colors
+// 标准背景色
 .ansi-bg-0 {
   background: var(--ansi-0);
 }
@@ -183,6 +183,13 @@
       )
   );
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(
+      in srgb,
+      var(--text-color-secondary) 30%,
+      transparent
+    )
+    transparent;
 }
 
 .pgv-skeleton-column {

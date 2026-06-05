@@ -52,11 +52,11 @@ describe("Timings", () => {
       return render(<Paused since={since} />);
     }
 
-    it("should prefix the time with Queued", () => {
-      expect(getPaused(1000).getByText("Queued 1s")).toBeInTheDocument();
-      expect(getPaused(100).getByText("Queued 0.1s")).toBeInTheDocument();
-      expect(getPaused(10).getByText("Queued 10ms")).toBeInTheDocument();
-      expect(getPaused(1).getByText("Queued 1ms")).toBeInTheDocument();
+    it("应该在时间前加排队中前缀", () => {
+      expect(getPaused(1000).getByText("排队中 1s")).toBeInTheDocument();
+      expect(getPaused(100).getByText("排队中 0.1s")).toBeInTheDocument();
+      expect(getPaused(10).getByText("排队中 10ms")).toBeInTheDocument();
+      expect(getPaused(1).getByText("排队中 1ms")).toBeInTheDocument();
     });
   });
 
@@ -79,68 +79,68 @@ describe("Timings", () => {
       expect(getStarted(0).container.innerHTML).toBe("");
     });
 
-    it("should start with <1s", () => {
+    it("应该以 <1s 开始", () => {
       expect(
-        getStarted(now - 42).getByText("Started <1s ago"),
+        getStarted(now - 42).getByText("开始于 <1s 前"),
       ).toBeInTheDocument();
     });
 
-    it("should round down initially", () => {
+    it("应该向下取整", () => {
       expect(
-        getStarted(now - 1500).getByText("Started 1s ago"),
+        getStarted(now - 1500).getByText("开始于 1s 前"),
       ).toBeInTheDocument();
     });
 
-    it("should prefix the time with Started and end with ago", () => {
+    it("应该在时间前加开始于并在后加前", () => {
       expect(
-        getStarted(now - 1000).getByText("Started 1s ago"),
+        getStarted(now - 1000).getByText("开始于 1s 前"),
       ).toBeInTheDocument();
       expect(
-        getStarted(now - 60_000).getByText("Started 1m ago"),
+        getStarted(now - 60_000).getByText("开始于 1m 前"),
       ).toBeInTheDocument();
       expect(
-        getStarted(now - 3_600_000).getByText("Started 1h ago"),
+        getStarted(now - 3_600_000).getByText("开始于 1h 前"),
       ).toBeInTheDocument();
       expect(
-        getStarted(now - 86_400_000).getByText("Started 1d ago"),
+        getStarted(now - 86_400_000).getByText("开始于 1d 前"),
       ).toBeInTheDocument();
     });
 
-    it("should increment by 1s when live", async () => {
+    it("实时时应每秒递增", async () => {
       const res = render(<Started live since={now} />);
-      expect(res.getByText("Started <1s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 <1s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(1_000));
-      expect(res.getByText("Started <1s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 <1s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(1_000));
-      expect(res.getByText("Started 1s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 1s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(1_000));
-      expect(res.getByText("Started 2s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 2s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(1_000));
-      expect(res.getByText("Started 3s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 3s 前")).toBeInTheDocument();
     });
 
-    it("should increment from variable offset", async () => {
+    it("应从可变偏移量递增", async () => {
       const res = render(<Started live since={now - 1500} />);
-      expect(res.getByText("Started <1s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 <1s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(499));
-      expect(res.getByText("Started <1s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 <1s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(1));
-      expect(res.getByText("Started 1s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 1s 前")).toBeInTheDocument();
     });
 
-    it("should update by 1min when done", async () => {
+    it("完成后应每分钟更新", async () => {
       const res = render(<Started live={false} since={now - 45_000} />);
-      expect(res.getByText("Started 45s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 45s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(5_000));
-      expect(res.getByText("Started 45s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 45s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(5_000));
-      expect(res.getByText("Started 45s ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 45s 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(5_000));
-      expect(res.getByText("Started 1m ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 1m 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(60_000));
-      expect(res.getByText("Started 2m ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 2m 前")).toBeInTheDocument();
       await act(() => vi.advanceTimersByTime(60_000));
-      expect(res.getByText("Started 3m ago")).toBeInTheDocument();
+      expect(res.getByText("开始于 3m 前")).toBeInTheDocument();
     });
   });
 
