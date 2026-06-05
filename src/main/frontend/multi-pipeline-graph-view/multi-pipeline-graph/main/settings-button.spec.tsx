@@ -24,14 +24,14 @@ describe("SettingsButton", () => {
     const buttonPortal = createButtonPortal();
     renderComponent(buttonPortal);
 
-    expect(screen.getByText("Settings")).toBeTruthy();
+    expect(screen.getByText("设置")).toBeTruthy();
   });
 
   it("should toggle dropdown when clicking settings button", async () => {
     const buttonPortal = createButtonPortal();
     renderComponent(buttonPortal);
 
-    const settingsButton = screen.getByText("Settings");
+    const settingsButton = screen.getByText("设置");
     fireEvent.click(settingsButton!);
 
     expect(screen.getByText("显示阶段名称")).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe("SettingsButton", () => {
     const buttonPortal = createButtonPortal();
     renderComponent(buttonPortal);
 
-    const settingsButton = screen.getByText("Settings");
+    const settingsButton = screen.getByText("设置");
     fireEvent.click(settingsButton);
 
     const showNamesCheckbox = screen.getByLabelText("显示阶段名称");
