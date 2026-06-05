@@ -55,7 +55,7 @@ export default function DataTreeView({
           </div>
           <input
             className="jenkins-input jenkins-search__input"
-            placeholder="Search"
+            placeholder="搜索"
             type="search"
             autoComplete="off"
             autoCorrect="off"
@@ -80,11 +80,11 @@ export default function DataTreeView({
               d="M32 144h448M112 256h288M208 368h96"
             />
           </svg>
-          <div>No stages</div>
+          <div>暂无阶段</div>
         </div>
       )}
 
-      <ol className={"pgv-tree"} role="tree" aria-label={"Pipeline Stages"}>
+      <ol className={"pgv-tree"} role="tree" aria-label={"流水线阶段"}>
         {filteredStages.map((stage) => (
           <TreeNode
             key={stage.id}
@@ -178,7 +178,7 @@ const TreeNode = memo(function TreeNode({
                 className="pgv-tree-item__name"
                 id={`stage-${stage.id}-name`}
               >
-                <span className={"jenkins-visually-hidden"}>Stage </span>
+                <span className={"jenkins-visually-hidden"}>阶段 </span>
                 {stage.name}
               </div>
               <div className="pgv-tree-item__description">
@@ -197,7 +197,7 @@ const TreeNode = memo(function TreeNode({
               "pgv-tree-item__toggle--active": isExpanded,
             })}
             onClick={handleToggleClick}
-            aria-label={`${isExpanded ? "Collapse" : "Expand"} ${stage.name}`}
+            aria-label={`${isExpanded ? "折叠" : "展开"} ${stage.name}`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path
@@ -217,7 +217,7 @@ const TreeNode = memo(function TreeNode({
         <div className="pgv-tree-children">
           <ol
             role={"group"}
-            aria-label={`Stages in ${stage.name}`}
+            aria-label={`${stage.name} 中的阶段`}
             className={"pgv-tree"}
           >
             {stage.children.map((child) => (

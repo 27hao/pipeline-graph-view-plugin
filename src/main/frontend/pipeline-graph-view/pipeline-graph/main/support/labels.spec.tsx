@@ -92,7 +92,7 @@ describe("BigLabel", () => {
     );
     expect(screen.getByRole("button")).toBeInTheDocument();
     expect(screen.getByText("(2)")).toBeInTheDocument();
-    expect(screen.getByTitle("Collapse nested stages")).toBeInTheDocument();
+    expect(screen.getByTitle("折叠嵌套阶段")).toBeInTheDocument();
   });
 
   it("shows expand title when collapsed", () => {
@@ -107,7 +107,7 @@ describe("BigLabel", () => {
         isCollapsed
       />,
     );
-    expect(screen.getByTitle("Expand nested stages")).toBeInTheDocument();
+    expect(screen.getByTitle("展开嵌套阶段")).toBeInTheDocument();
   });
 
   it("fires onToggleCollapse with stage id on badge click", () => {
@@ -168,7 +168,7 @@ describe("SmallLabel", () => {
       />,
     );
     expect(screen.getByText("(3)")).toBeInTheDocument();
-    expect(screen.getByTitle("Expand nested stages")).toBeInTheDocument();
+    expect(screen.getByTitle("展开嵌套阶段")).toBeInTheDocument();
   });
 
   it("fires onToggleCollapse on badge click", () => {
@@ -213,7 +213,7 @@ describe("SequentialContainerLabel", () => {
       />,
     );
     expect(screen.getByText("(2)")).toBeInTheDocument();
-    expect(screen.getByTitle("Collapse nested stages")).toBeInTheDocument();
+    expect(screen.getByTitle("折叠嵌套阶段")).toBeInTheDocument();
   });
 
   it("shows expand title when collapsed", () => {
@@ -226,7 +226,7 @@ describe("SequentialContainerLabel", () => {
         isCollapsed
       />,
     );
-    expect(screen.getByTitle("Expand nested stages")).toBeInTheDocument();
+    expect(screen.getByTitle("展开嵌套阶段")).toBeInTheDocument();
   });
 
   it("fires onToggleCollapse on badge click", () => {

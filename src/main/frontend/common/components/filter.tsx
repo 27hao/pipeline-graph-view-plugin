@@ -24,42 +24,42 @@ export default function Filter({ disabled }: FilterProps) {
   const statuses = [
     {
       key: "running",
-      text: "Running",
+      text: "运行中",
       status: Result.running,
     },
     {
       key: "queued",
-      text: "Queued",
+      text: "排队中",
       status: Result.queued,
     },
     {
       key: "success",
-      text: "Successful",
+      text: "成功",
       status: Result.success,
     },
     {
       key: "failure",
-      text: "Failed",
+      text: "失败",
       status: Result.failure,
     },
     {
       key: "unstable",
-      text: "Unstable",
+      text: "不稳定",
       status: Result.unstable,
     },
     {
       key: "aborted",
-      text: "Aborted",
+      text: "已中止",
       status: Result.aborted,
     },
     {
       key: "skipped",
-      text: "Skipped",
+      text: "已跳过",
       status: Result.skipped,
     },
     {
       key: "not_built",
-      text: "Not built",
+      text: "未构建",
       status: Result.not_built,
     },
   ];
@@ -68,7 +68,7 @@ export default function Filter({ disabled }: FilterProps) {
   const hide = () => setVisible(false);
 
   return (
-    <Tooltip content={"Filter"}>
+    <Tooltip content={"筛选"}>
       <Tippy
         {...DefaultDropdownProps}
         visible={visible}
@@ -79,7 +79,7 @@ export default function Filter({ disabled }: FilterProps) {
         content={
           <div className="jenkins-dropdown" data-testid="filter-dropdown">
             <div className="jenkins-dropdown__heading">
-              Filter
+              筛选
               {!allVisible && (
                 <button
                   className={
@@ -87,7 +87,7 @@ export default function Filter({ disabled }: FilterProps) {
                   }
                   onClick={resetStatuses}
                 >
-                  Reset
+                  重置
                 </button>
               )}
             </div>
@@ -164,7 +164,7 @@ export default function Filter({ disabled }: FilterProps) {
                   )}
                 </svg>
               </div>
-              Show hidden steps
+              显示隐藏的步骤
             </button>
           </div>
         }
@@ -182,7 +182,7 @@ export default function Filter({ disabled }: FilterProps) {
           type="button"
           disabled={disabled}
           onClick={visible ? hide : show}
-          aria-label={"Filter"}
+          aria-label={"筛选"}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path

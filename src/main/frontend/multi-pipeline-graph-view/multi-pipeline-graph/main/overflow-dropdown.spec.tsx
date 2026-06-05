@@ -27,24 +27,24 @@ describe("OverflowDropdown", () => {
   it("should render dropdown button", () => {
     const portal = createButtonPortal();
     renderComponent(portal);
-    expect(screen.getByText("More actions")).toBeTruthy();
+    expect(screen.getByText("更多操作")).toBeTruthy();
   });
 
   it("should show all checkboxes when opened", () => {
     const portal = createButtonPortal();
     renderComponent(portal);
 
-    fireEvent.click(screen.getByText("More actions"));
+    fireEvent.click(screen.getByText("更多操作"));
 
-    expect(screen.getByLabelText("Show stage names")).toBeInTheDocument();
-    expect(screen.getByLabelText("Show stage duration")).toBeInTheDocument();
+    expect(screen.getByLabelText("显示阶段名称")).toBeInTheDocument();
+    expect(screen.getByLabelText("显示阶段持续时间")).toBeInTheDocument();
   });
 
-  it("should show Configure link when user can configure", () => {
+  it("当用户有配置权限时应显示配置链接", () => {
     const portal = createButtonPortal();
     renderComponent(portal);
 
-    fireEvent.click(screen.getByText("More actions"));
-    expect(screen.getByText("Configure")).toBeInTheDocument();
+    fireEvent.click(screen.getByText("更多操作"));
+    expect(screen.getByText("配置")).toBeInTheDocument();
   });
 });

@@ -54,7 +54,7 @@ describe("StageDetails", () => {
       </FilterProvider>,
     );
 
-    expect(screen.queryByText("Queued")).not.toBeInTheDocument();
+    expect(screen.queryByText("排队中")).not.toBeInTheDocument();
   });
 
   it("disables dropdown if stage is synthetic", () => {
@@ -64,7 +64,7 @@ describe("StageDetails", () => {
       </FilterProvider>,
     );
 
-    const dropdownButton = screen.getByRole("button", { name: "More actions" });
+    const dropdownButton = screen.getByRole("button", { name: "更多操作" });
     expect(dropdownButton).toBeDisabled();
   });
 
@@ -76,7 +76,7 @@ describe("StageDetails", () => {
     );
 
     expect(
-      screen.queryByLabelText("Total duration")?.nextSibling,
+      screen.queryByLabelText("总持续时间")?.nextSibling,
     ).toHaveTextContent("2m");
   });
 
@@ -89,7 +89,7 @@ describe("StageDetails", () => {
       </FilterProvider>,
     );
 
-    expect(screen.queryByText("Started 1m ago")).toBeInTheDocument();
+    expect(screen.queryByText("开始于 1m 前")).toBeInTheDocument();
   });
 
   it("shows cause of blockage when stage is queued", () => {

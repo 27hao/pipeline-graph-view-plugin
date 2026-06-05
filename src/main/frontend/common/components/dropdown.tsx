@@ -8,7 +8,7 @@ import Tooltip from "./tooltip.tsx";
  */
 export default function Dropdown({
   items,
-  tooltip = "More actions",
+  tooltip = "更多操作",
   disabled,
   className,
   icon,
