@@ -248,8 +248,7 @@ const ConsoleLogBody = memo(function ConsoleLogBody({
             "pgv-show-more-logs jenkins-button jenkins-!-warning-color"
           }
         >
-          There’s more to see - {prettySizeString(stepBuffer.startByte)} of logs
-          hidden
+          还有更多内容 - {prettySizeString(stepBuffer.startByte)} 日志已隐藏
         </button>
       );
     }

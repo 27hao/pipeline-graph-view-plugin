@@ -35,21 +35,21 @@ vi.mock("../providers/user-preference-provider.tsx", () => ({
 }));
 
 describe("StagesCustomization", () => {
-  it("should render Views and Graph position controls", () => {
+  it("应该渲染视图和图表位置控件", () => {
     render(<StagesCustomization />);
 
-    expect(screen.getByText("Views")).toBeInTheDocument();
-    expect(screen.getByText("Graph position")).toBeInTheDocument();
+    expect(screen.getByText("视图")).toBeInTheDocument();
+    expect(screen.getByText("图表位置")).toBeInTheDocument();
   });
 
-  it("should show current values", () => {
+  it("应该显示当前值", () => {
     render(<StagesCustomization />);
 
-    expect(screen.getAllByText("Graph and stages").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("Top").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("图表和阶段").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("顶部").length).toBeGreaterThan(0);
   });
 
-  it("should change view visibility on select", () => {
+  it("选择时应改变视图可见性", () => {
     render(<StagesCustomization />);
 
     const viewsSelect = document.getElementById(
@@ -59,7 +59,7 @@ describe("StagesCustomization", () => {
     expect(mockSetMainViewVisibility).toHaveBeenCalledWith("graphOnly");
   });
 
-  it("should change graph position on select", () => {
+  it("选择时应改变图表位置", () => {
     render(<StagesCustomization />);
 
     const positionSelect = document.getElementById(
@@ -69,7 +69,7 @@ describe("StagesCustomization", () => {
     expect(mockSetStageViewPosition).toHaveBeenCalledWith("left");
   });
 
-  it("should return null on mobile", () => {
+  it("移动端应返回 null", () => {
     mockUseLayoutPreferences.mockReturnValueOnce({
       mainViewVisibility: "both",
       setMainViewVisibility: vi.fn(),

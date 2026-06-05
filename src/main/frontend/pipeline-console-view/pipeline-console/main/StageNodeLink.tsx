@@ -3,7 +3,7 @@ export default function StageNodeLink({ agent }: StageNodeLinkProps) {
     return null;
   }
 
-  const agentName = agent === "built-in" ? "Jenkins" : agent;
+  const agentName = agent === "built-in" ? "流水线" : agent;
   const href = getAgentUrl(agent);
 
   function getAgentUrl(name: string) {

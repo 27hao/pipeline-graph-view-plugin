@@ -34,8 +34,8 @@ describe("SettingsButton", () => {
     const settingsButton = screen.getByText("Settings");
     fireEvent.click(settingsButton!);
 
-    expect(screen.getByText("Show stage names")).toBeInTheDocument();
-    expect(screen.getByText("Show stage duration")).toBeInTheDocument();
+    expect(screen.getByText("显示阶段名称")).toBeInTheDocument();
+    expect(screen.getByText("显示阶段持续时间")).toBeInTheDocument();
   });
 
   it("should update preferences when toggling checkboxes", () => {
@@ -45,11 +45,11 @@ describe("SettingsButton", () => {
     const settingsButton = screen.getByText("Settings");
     fireEvent.click(settingsButton);
 
-    const showNamesCheckbox = screen.getByLabelText("Show stage names");
+    const showNamesCheckbox = screen.getByLabelText("显示阶段名称");
     fireEvent.click(showNamesCheckbox);
     expect(showNamesCheckbox).toBeChecked();
 
-    const showDurationsCheckbox = screen.getByLabelText("Show stage duration");
+    const showDurationsCheckbox = screen.getByLabelText("显示阶段持续时间");
     fireEvent.click(showDurationsCheckbox);
     expect(showDurationsCheckbox).toBeChecked();
   });

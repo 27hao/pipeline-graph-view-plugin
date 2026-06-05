@@ -37,7 +37,7 @@ export default function OverflowDropdown({
           canConfigure ? "separator" : <></>,
           canConfigure ? (
             {
-              text: "Configure",
+              text: "配置",
               icon: SETTINGS,
               href: `../configure`,
             }

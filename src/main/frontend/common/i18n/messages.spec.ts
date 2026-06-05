@@ -60,7 +60,7 @@ describe("Messages", () => {
 
       expect(
         messages.format(LocalizedMessageKey.startedAgo, { 0: "5s" }),
-      ).toEqual("Started 5s ago");
+      ).toEqual("开始于 5s 前");
       expect(messages.format("A.property")).toEqual("");
     });
   });

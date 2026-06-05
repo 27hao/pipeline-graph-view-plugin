@@ -70,7 +70,7 @@ export default function Stages({
           className={"pgv-stages-graph__controls pgv-stages-graph__heading"}
           href="stages"
         >
-          Stages
+          阶段
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path
               fill="none"
@@ -84,7 +84,7 @@ export default function Stages({
         </a>
       )}
       <div className={"pgv-stages-graph__controls pgw-fullscreen-controls"}>
-        <Tooltip content={isExpanded ? "Close" : "Expand"}>
+        <Tooltip content={isExpanded ? "关闭" : "展开"}>
           <button
             className={"jenkins-button jenkins-button--tertiary"}
             onClick={() => setIsExpanded(!isExpanded)}
@@ -188,7 +188,7 @@ function ZoomControls({
 
   return (
     <div className="pgv-stages-graph__controls pgw-zoom-controls">
-      <Tooltip content={"Zoom in"}>
+      <Tooltip content={"放大"}>
         <button
           className={"jenkins-button jenkins-button--tertiary"}
           onClick={() => zoomIn()}
@@ -206,7 +206,7 @@ function ZoomControls({
           </svg>
         </button>
       </Tooltip>
-      <Tooltip content={"Zoom out"}>
+      <Tooltip content={"缩小"}>
         <button
           className={"jenkins-button jenkins-button--tertiary"}
           onClick={() => zoomOut()}
@@ -224,7 +224,7 @@ function ZoomControls({
           </svg>
         </button>
       </Tooltip>
-      <Tooltip content={"Reset"}>
+      <Tooltip content={"重置"}>
         <button
           className={"jenkins-button jenkins-button--tertiary"}
           onClick={() => centerView(initialScale)}

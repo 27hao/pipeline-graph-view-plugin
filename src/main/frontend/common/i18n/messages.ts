@@ -88,22 +88,22 @@ export enum LocalizedMessageKey {
 }
 
 const DEFAULT_MESSAGES: ResourceBundle = {
-  [LocalizedMessageKey.startedAgo]: "Started {0} ago",
-  [LocalizedMessageKey.queued]: "Queued {0}",
-  [LocalizedMessageKey.noBuilds]: "No builds",
-  [LocalizedMessageKey.start]: "Start",
-  [LocalizedMessageKey.end]: "End",
-  [LocalizedMessageKey.changesSummary]: "{0} {0,choice,1#change|1<changes}",
-  [LocalizedMessageKey.settings]: "Settings",
-  [LocalizedMessageKey.showNames]: "Show stage names",
-  [LocalizedMessageKey.showDuration]: "Show stage duration",
-  [LocalizedMessageKey.consoleNewTab]: "View step as plain text",
-  [LocalizedMessageKey.tailLogsResume]: "Resume tailing logs",
-  [LocalizedMessageKey.tailLogsPause]: "Pause tailing logs",
-  [LocalizedMessageKey.expandNestedStages]: "Expand nested stages",
-  [LocalizedMessageKey.collapseNestedStages]: "Collapse nested stages",
-  [LocalizedMessageKey.expandAllStages]: "Expand all stages",
-  [LocalizedMessageKey.collapseAllStages]: "Collapse all stages",
+  [LocalizedMessageKey.startedAgo]: "开始于 {0} 前",
+  [LocalizedMessageKey.queued]: "排队中 {0}",
+  [LocalizedMessageKey.noBuilds]: "暂无构建",
+  [LocalizedMessageKey.start]: "开始",
+  [LocalizedMessageKey.end]: "结束",
+  [LocalizedMessageKey.changesSummary]: "{0} {0,choice,1#个变更|1<个变更}",
+  [LocalizedMessageKey.settings]: "设置",
+  [LocalizedMessageKey.showNames]: "显示阶段名称",
+  [LocalizedMessageKey.showDuration]: "显示阶段持续时间",
+  [LocalizedMessageKey.consoleNewTab]: "以纯文本查看步骤",
+  [LocalizedMessageKey.tailLogsResume]: "继续追踪日志",
+  [LocalizedMessageKey.tailLogsPause]: "暂停追踪日志",
+  [LocalizedMessageKey.expandNestedStages]: "展开嵌套阶段",
+  [LocalizedMessageKey.collapseNestedStages]: "折叠嵌套阶段",
+  [LocalizedMessageKey.expandAllStages]: "展开所有阶段",
+  [LocalizedMessageKey.collapseAllStages]: "折叠所有阶段",
 };
 
 export function defaultMessages(locale: string): Messages {

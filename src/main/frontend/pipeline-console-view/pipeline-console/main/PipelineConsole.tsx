@@ -75,18 +75,18 @@ export default function PipelineConsole() {
               <></>
             ),
             {
-              text: "View as plain text",
+              text: "以纯文本查看",
               icon: DOCUMENT,
               href: `../consoleText`,
             },
             {
-              text: "View classic console",
+              text: "查看经典控制台",
               icon: CONSOLE,
               href: `../console`,
             },
             canConfigure ? (
               {
-                text: "Configure",
+                text: "配置",
                 icon: SETTINGS,
                 href: `../../configure`,
               }
